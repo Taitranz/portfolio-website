@@ -1,0 +1,596 @@
+@font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/Roobert-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Roobert-SemiBold.woff2') format('woff2');
+
+
+}
+
+
+
+@font-face {
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/RoobertBold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Nature Beauty';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/NatureBeauty.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: 'DIN Round';
+    src: url('../fonts/DIN_Round.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+
+
+/* Colors */
+:root {
+    --color--foreground--100: rgb(0 0 0 / 1);
+    --color--foreground--50: rgb(0 0 0 / 0.5);
+    --color--foreground--33: rgb(0 0 0 / 0.333);
+    --color--foreground--25: rgb(0 0 0 / 0.25);
+    --color--foreground--20: rgb(0 0 0 / 0.2);
+    --color--foreground--15: rgb(0 0 0 / 0.15);
+    --color--foreground--10: rgb(0 0 0 / 0.1);
+    --color--foreground--5: rgb(0 0 0 / 0.05);
+    --color--foreground--0: rgb(0 0 0 / 0);
+    --color--background--100: rgb(255 255 255 / 1);
+    --color--background--0: rgb(255 255 255 / 0);
+    --nav-item-unselected: rgb(170, 170, 170);
+    --nav-item-selected: rgb(0, 0, 0);
+    --nav-item-hover: rgb(0, 0, 0);
+}
+
+/* Grid */
+:root {
+    --grid--app-margin: 40px;
+    --grid--app-columns: var(--grid--app-columns-12);
+    --grid--app-columns-12: repeat(12, [col-start] 1fr);
+    --grid--app-columns-6: repeat(6, [col-start] 1fr);
+    --grid--app-columns-4: repeat(4, [col-start] 1fr);
+    --grid--app-columns-3: repeat(3, [col-start] 1fr);
+    --grid--app-columns-2: repeat(2, [col-start] 1fr);
+    --grid--app-columns-1: repeat(1, [col-start] 1fr);
+    --grid--app-gutter: 20px;
+    --grid--app-xheight: 220px;
+}
+
+/* Typography */
+:root {
+    --font--family: "Roobert", system-ui, sans-serif;
+    --font--style: normal;
+    --font--weight: 500;
+    --font--margin-left: -0.07em;
+    --font--margin-left-opening-quote-mark: -0.406em;
+    --font--feature-settings: "liga", "ss02", "ss03", "ss04", "ss06";
+    --font--feature-settings-no-stylized-numeral-8: "ss06" 0;
+    --font--size-huge: clamp(36px, 5.14vw, 5.14vw);
+    --font--size-large: clamp(26px, 1.81vw, 1.81vw);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    font-family: var(--font--family);
+    font-style: var(--font--style);
+    font-weight: var(--font--weight);
+    font-feature-settings: var(--font--feature-settings);
+}
+
+h1,
+h2,
+h3,
+p,
+figure {
+    margin: 0;
+    margin-left: 0px;
+}
+
+body {
+
+    margin: 0;
+
+}
+
+main {
+    display: block;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.portfolio-website-header {
+    position: fixed;
+    width: 100%;
+    padding: 0 var(--grid--app-margin);
+    z-index: 100;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.portfolio-website-header>.content {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.portfolio-website-header .name {
+    padding: 12px 0;
+    font-family: "Roobert";
+    font-weight: 500;
+    font-size: 12px;
+
+}
+
+.portfolio-website-nav {
+    position: fixed;
+    top: 220px;
+    left: 40px;
+    height: calc(100vh - var(--grid--app-xheight));
+    display: flex;
+    flex-direction: column;
+
+    overflow-y: auto;
+}
+
+.portfolio-website-nav div {
+    font-family: "Roobert";
+    font-weight: 500;
+    color: var(--nav-item-unselected);
+    line-height: 20px;
+    font-size: 16px;
+    align-items: left;
+    padding: 1px 0px 1px 0px;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.portfolio-website-nav div:hover {
+    color: var(--nav-item-hover);
+}
+
+.portfolio-website-nav div.selected {
+    color: var(--nav-item-selected);
+}
+
+
+.portfolio-website-main {
+    font-family: "Roobert", system-ui, sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-feature-settings: "liga", "ss02", "ss03", "ss04", "ss06";
+    overflow-y: auto;
+
+}
+
+
+.section {
+    padding: 0 var(--grid--app-margin);
+    display: grid;
+    grid-template-columns: var(--grid--app-columns);
+    gap: var(--grid--app-gutter);
+}
+
+.section>.content {
+    grid-column: 5 / -1;
+    padding: 220px 0 20px 0;
+}
+
+.section.intro>.content {
+    padding: calc(var(--grid--app-xheight) - 11px) 0 80px 0;
+    position: relative;
+}
+
+.section.intro .text {
+    margin-left: var(--font--margin-left);
+    font-size: var(--font--size-huge);
+    line-height: 0.975;
+    letter-spacing: -0.02em;
+}
+
+.section.intro .options {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.section.intro .options .option {
+    font-size: var(--font--size-regular);
+    line-height: 20px;
+    padding: 12px 10px;
+    color: var(--color--foreground--33);
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 0.1s ease;
+}
+
+/* Styles for Active Option */
+.section.intro .options .option.is--active {
+    color: var(--color--foreground--100);
+}
+
+/* Hover Effect for Options (Place after active styles) */
+.section.intro .options .option:hover {
+    color: var(--nav-item-hover);
+}
+
+.section.intro .options .option:first-child {
+    padding-left: 0;
+}
+
+.section h1 {
+    margin-left: var(--font--margin-left);
+
+    font-size: var(--font--size-huge);
+    line-height: 0.975;
+    letter-spacing: -0.02em;
+}
+
+.section h2 {
+    margin-left: var(--font--margin-left);
+    font-size: var(--font--size-large);
+    line-height: 1.16;
+    letter-spacing: -0.01em;
+}
+
+.portfolio-website-main .section .section-title {
+    font-family: "Roobert";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+    color: rgb(0, 0, 0);
+    margin-bottom: 20px;
+}
+
+.default {
+    padding: 0px 40px 0px 40px;
+}
+
+.section.work {
+    padding-top: var(--grid--app-margin);
+}
+
+.section.work .content .texts .project-container {
+    padding-bottom: 160px;
+}
+
+.section.work .content .texts .project-container .title .seek-music {
+
+    font-size: 72px;
+    color: rgb(173, 59, 52);
+    line-height: 1.4;
+    font-feature-settings: var(--font--feature-settings-no-stylized-numeral-8);
+    font-style: normal;
+    font-family: 'Nature Beauty';
+}
+
+.section.work .content .texts .project-container .title .socslingo {
+
+    font-size: 72px;
+    color: rgb(255, 204, 111);
+    font-style: normal;
+    font-weight: 500;
+    font-feature-settings: var(--font--feature-settings-no-stylized-numeral-8);
+    line-height: 0.9;
+    font-family: 'DIN Round';
+}
+
+/* Add this to your existing CSS file */
+.section.work .content .texts .project-container .details {
+    display: flex;
+    justify-content: flex-start;
+
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+
+}
+
+.section.work .content .texts .project-container .details .software-stack {
+    font-size: 28px;
+    line-height: 1;
+    font-family: "Roobert";
+    font-style: normal;
+    font-feature-settings: var(--font--feature-settings-no-stylized-numeral-8);
+    font-weight: 700;
+    color: var(--color--foreground--100);
+
+}
+
+
+
+.section.work .content .texts .project-container .details .development-timeline {
+
+    font-size: 26px;
+    line-height: var(--font--size-regular-line-height);
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 600;
+    color: rgb(99, 99, 99);
+    display: flex;
+    align-items: center;
+
+}
+
+
+.section.work .content .texts .project-container .overview {
+    display: grid;
+    padding-top: 0.2rem;
+    grid-template-columns: repeat(24, 1fr);
+    /* Define a 24-column grid */
+    gap: var(--grid--app-gutter);
+}
+
+
+.section.work .content .texts .project-container .overview .description {
+    padding-top: 0.2rem;
+    grid-column: span 13;
+    min-width: 650px;
+
+    font-family: "Roobert";
+    font-style: normal;
+    font-weight: 500;
+    color: rgb(140, 140, 140);
+    font-size: 18px;
+
+}
+
+.section.work .content .texts .project-container .overview .description .button-view-documentation {
+    width: 223px;
+    height: 43px;
+}
+
+.section.work .content .texts .project-container .overview .preview-container {
+    grid-column: span 9;
+    display: flex;
+    align-items: center;
+}
+
+.section.work .content .texts .project-container .overview .preview-container .preview-image {
+    width: 445px;
+    height: auto;
+    border-radius: 16px;
+}
+
+
+.section.values>.content {
+    padding: 220px 0 20px 0;
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    gap: var(--grid--app-gutter);
+}
+
+
+
+.section.values .title {
+    padding-bottom: 80px;
+    grid-column: 1 / -1;
+}
+
+.section.values .description {
+    grid-column: 2 / -1;
+}
+
+.section.background>.content {
+    padding: 220px 0 20px 0;
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    gap: var(--grid--app-gutter);
+}
+
+
+.section.background .item {
+    padding-top: 80px;
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    column-gap: var(--grid--app-gutter);
+}
+
+.section.background .item .logo {
+    grid-column: 1 / -1;
+    width: 96px;
+    height: 96px;
+    border-radius: 48px;
+    margin-left: -8px;
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    background-color: var(--color--foreground--5);
+}
+
+.section.background .item .logo .content {
+    display: flex;
+    align-items: center;
+}
+
+.section.background .item .logo .content svg path {
+    fill: var(--color--foreground--100);
+}
+
+
+.section.background .item .company {
+    grid-column: 1 / -1;
+}
+
+.section.background .item .role {
+    grid-column: 1 / -1;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+
+.section.background .item .metadata {
+    grid-column: 1 / -1;
+    padding-top: 10px;
+}
+
+.section.background .item .time {
+    padding-right: 0.3em;
+}
+
+.section.background .item .description {
+    padding-top: 10px;
+    grid-column: 1 / 2;
+    color: var(--color--foreground--50);
+}
+
+
+.section.references>.content {
+    padding: 220px 0 20px 0;
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    gap: var(--grid--app-gutter);
+}
+
+.section.references .quote {
+    padding-right: 20px;
+}
+
+.opening-quote-mark {
+    margin-left: var(--font--margin-left-opening-quote-mark);
+}
+
+.section.references .item p {
+    padding-top: 10px;
+}
+
+.section.references .person {
+    padding-right: 0.3em;
+}
+
+.section.references .role {
+    color: var(--color--foreground--50);
+}
+
+.section.about>.content {
+    padding: 220px 0 20px 0;
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    gap: var(--grid--app-gutter);
+}
+
+.section.about .biography {
+    grid-column: 2 / -1;
+}
+
+.section.about .biography p {
+    padding-top: 0;
+}
+
+
+.section.contact>.content {
+    padding: 220px 0 var(--grid--app-margin) 0;
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    gap: var(--grid--app-gutter);
+}
+
+.section.contact>.content .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.section.contact .actions {
+    display: grid;
+    grid-template-columns: var(--grid--app-columns-2);
+    gap: var(--grid--app-gutter);
+}
+
+.section.contact .image figure {
+    position: relative;
+}
+
+.section.contact .image img {
+    width: 100%;
+    height: 100%;
+}
+
+img {
+    display: block;
+    user-select: none;
+}
+
+img {
+    border-style: none;
+}
+
+@media (max-width: 1850px) {
+    .section.work .content .texts .project-container .overview {
+        grid-template-columns: repeat(24, 1fr);
+        grid-template-rows: auto auto;
+        gap: var(--grid--app-gutter);
+    }
+
+    .section.work .content .texts .project-container .overview .preview-container {
+        grid-column: span 17;
+        margin-top: 1rem;
+        order: 1;
+    }
+
+    .section.work .content .texts .project-container .overview .preview-container .preview-image {
+        width: 754px;
+        height: auto;
+        border-radius: 16px;
+    }
+
+    .section.work .content .texts .project-container .overview .description {
+        grid-column: span 17;
+        max-width: 750px;
+        min-width: 750px;
+        order: 2;
+    }
+}
+
+@media (max-width: 1250px) {
+    .section.work .content .texts .project-container .overview .preview-container .preview-image {
+        width: 100%;
+        /* Make the image width responsive */
+        height: auto;
+        border-radius: 16px;
+    }
+
+    .section.work .content .texts .project-container .overview .description {
+        grid-column: span 17;
+        min-width: 100%;
+        order: 2;
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .section.work .content .texts .project-container .details .development-timeline {
+        width: 100%;
+    }
+}
