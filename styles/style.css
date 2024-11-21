@@ -400,9 +400,8 @@ a {
 
 .section.work .content .project-container .overview .description {
     padding-top: 0.2rem;
-    grid-column: span 13;
     min-width: 650px;
-    grid-column: span 17/ 18;
+    grid-column: span 13/ 14;
     order: 2;
     font-family: "Roobert";
     font-style: normal;
