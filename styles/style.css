@@ -226,6 +226,7 @@ a {
 .section.intro .text {
     margin-left: var(--font--margin-left);
     font-size: var(--font--size-huge);
+    user-select: none;
     line-height: 0.975;
     letter-spacing: -0.02em;
 }
@@ -302,7 +303,7 @@ a {
 }
 
 .section.work .content .texts .project-container .title .seek-music {
-
+    user-select: none;
     font-size: 72px;
     color: rgb(173, 59, 52);
     line-height: 1.5;
@@ -312,7 +313,7 @@ a {
 }
 
 .section.work .content .texts .project-container .title .socslingo {
-
+    user-select: none;
     font-size: 72px;
     color: rgb(255, 204, 111);
     font-style: normal;
