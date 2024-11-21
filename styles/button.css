@@ -105,7 +105,7 @@
     /* Center content vertically */
     justify-content: center;
     /* Center content horizontally */
-    padding: 10px;
+    padding: 5px;
     /* Add padding */
     background-color: rgb(245, 245, 245);
     /* Background color */
@@ -147,8 +147,8 @@
     font-weight: 600;
     font-size: 18px;
     color: #000000;
-
-
+    margin-left: 10px;
+    padding-bottom: 2px;
     display: inline-block;
     /* Adjust this value as needed */
 }
