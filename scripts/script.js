@@ -1,3 +1,5 @@
+// ...existing code...
+
 const navItems = document.querySelectorAll('.portfolio-website-nav .item');
 const sections = document.querySelectorAll('.portfolio-website-main .section');
 
@@ -22,7 +24,6 @@ sections.forEach(section => {
     observer.observe(section);
 });
 
-
 function smoothScrollTo(element, duration) {
     const targetPosition = element.getBoundingClientRect().top + window.scrollY;
     const startPosition = window.scrollY;
@@ -46,19 +47,20 @@ function smoothScrollTo(element, duration) {
 
     requestAnimationFrame(animation);
 }
+
 navItems.forEach(item => {
     item.addEventListener('click', () => {
-        navItems.forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-
         const sectionClass = item.classList[1];
         const section = document.querySelector(`.section.${sectionClass}`);
         if (section) {
             smoothScrollTo(section, 1000);
         }
+
+        navMenu.classList.remove('nav-visible');
+        overlay.classList.remove('visible');
+        hamburgerMenu.classList.remove('active'); // Deactivate hamburger menu on item click
     });
 });
-
 
 const textsForOptions = {
     anyone: [
@@ -93,7 +95,6 @@ const optionItems = document.querySelectorAll('.options .option');
 optionItems.forEach(item => {
     item.addEventListener('click', () => {
         optionItems.forEach(i => i.classList.remove('is--active'));
-
         item.classList.add('is--active');
 
         const optionClass = item.classList[1];
@@ -104,10 +105,6 @@ optionItems.forEach(item => {
 const defaultActiveOption = document.querySelector('.options .option.is--active').classList[1];
 updateTexts(defaultActiveOption);
 
-
-
-
-
 const hamburgerMenu = document.querySelector('.hamburger-menu-centered');
 const navMenu = document.querySelector('.portfolio-website-nav');
 const overlay = document.querySelector('.overlay');
@@ -115,37 +112,10 @@ const overlay = document.querySelector('.overlay');
 hamburgerMenu.addEventListener('click', () => {
     navMenu.classList.toggle('nav-visible');
     overlay.classList.toggle('visible');
-    hamburgerMenu.classList.toggle('active'); // Added line to toggle active class
+    hamburgerMenu.classList.toggle('active'); // Toggle active class
 });
 
-navItems.forEach(item => {
-    item.addEventListener('click', () => {
-        navItems.forEach(i => i.classList.remove('selected'));
-        item.classList.add('selected');
-
-        const sectionClass = item.classList[1];
-        const section = document.querySelector(`.section.${sectionClass}`);
-        if (section) {
-            smoothScrollTo(section, 1000);
-        }
-
-        navMenu.classList.remove('nav-visible');
-        overlay.classList.remove('visible');
-        hamburgerMenu.classList.remove('active'); // Added line to remove active class on item click
-    });
-});
-
-// Add window resize listener
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 1020) {
-        if (hamburgerMenu.classList.contains('active')) {
-            hamburgerMenu.classList.remove('active');
-            navMenu.classList.remove('nav-visible');
-            overlay.classList.remove('visible');
-        }
-    }
-});
-
+// Consolidated window resize listener to deactivate hamburger menu on any resize
 window.addEventListener('resize', () => {
     if (hamburgerMenu.classList.contains('active')) {
         hamburgerMenu.classList.remove('active');
