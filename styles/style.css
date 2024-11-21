@@ -93,6 +93,8 @@
     font-style: var(--font--style);
     font-weight: var(--font--weight);
     font-feature-settings: var(--font--feature-settings);
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -118,6 +120,13 @@ main {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+::selection {
+    background: rgb(229, 229, 229);
+    /* Gold color */
+    color: #000000;
+    /* Black text */
 }
 
 .portfolio-website-header {
