@@ -563,6 +563,17 @@ img {
     border-style: none;
 }
 
+
+body {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1.5;
+    }
+}
 @media (max-width: 1850px) {
     .section.work .content .texts .project-container .overview {
         grid-template-columns: repeat(24, 1fr);
