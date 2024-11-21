@@ -347,21 +347,21 @@
     }
 
     .section.work .content .project-container .overview .preview-container {
-        grid-column: 16 / span 17;
+grid-column: 13 / span 14;
         margin-top: 1rem;
         order: 1;
     }
 
     .section.work .content .project-container .overview .preview-container .preview-image {
-        max-width: 390px;
+width: 100%;
         height: auto;
         border-radius: 16px;
     }
 
     .section.work .content .project-container .overview .description {
-        grid-column: span 17 / 16;
-        max-width: 390px;
-        min-width: 390px;
+        grid-column: span 14 / 13;
+
+        min-width: 100%;
         order: 2;
     }
 
@@ -378,13 +378,14 @@
     .section.work .content .project-container .overview .preview-container {
         grid-column: 16/span 17;
         margin-top: 1rem;
+        
         order: 1;
 
     }
 
     .section.work .content .project-container .overview .description {
         grid-column: span 17 / 16;
-        min-width: 100%;
+
         order: 2;
     }
 
