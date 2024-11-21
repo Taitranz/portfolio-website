@@ -175,7 +175,8 @@ a {
 .portfolio-website-nav div.selected {
     color: var(--nav-item-selected);
 }
-.portfolio-website-nav .item{
+
+.portfolio-website-nav .item {
     font-family: "Roobert";
     font-weight: 500;
     color: var(--nav-item-unselected);
