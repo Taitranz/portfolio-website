@@ -2,14 +2,14 @@
     font-family: "Roobert";
     font-style: normal;
     font-weight: 500;
-    src: url('Roobert-Medium.woff2') format('woff2');
+    src: url('fonts/Roobert-Medium.woff2') format('woff2');
 }
 
 @font-face {
     font-family: "Roobert";
     font-style: normal;
     font-weight: 600;
-    src: url('Roobert-SemiBold.woff2') format('woff2');
+    src: url('fonts/Roobert-SemiBold.woff2') format('woff2');
 
 
 }
@@ -19,20 +19,20 @@
     font-family: "Roobert";
     font-style: normal;
     font-weight: 700;
-    src: url('RoobertBold.woff') format('woff');
+    src: url('fonts/RoobertBold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'Nature Beauty';
     font-style: normal;
     font-weight: 400;
-    src: url('NatureBeauty.ttf') format('truetype');
+    src: url('fonts/NatureBeauty.ttf') format('truetype');
 }
 
 
 @font-face {
     font-family: 'DIN Round';
-    src: url('DIN_Round.woff2') format('woff2');
+    src: url('fonts/DIN_Round.woff2') format('woff2');
     font-weight: 500;
     font-style: normal;
 
@@ -175,7 +175,15 @@ a {
 .portfolio-website-nav div.selected {
     color: var(--nav-item-selected);
 }
+.portfolio-website-nav .item{
+    font-family: "Roobert";
+    font-weight: 500;
+    color: var(--nav-item-unselected);
+    line-height: 20px;
+    font-size: 16px;
 
+
+}
 
 .portfolio-website-main {
     font-family: "Roobert", system-ui, sans-serif;
