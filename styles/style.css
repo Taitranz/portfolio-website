@@ -184,7 +184,7 @@ a {
     z-index: 99;
     overflow-y: auto;
 
-    
+
 
 }
 
@@ -200,10 +200,12 @@ a {
     user-select: none;
 
 }
+
 .portfolio-website-nav.nav-visible {
     opacity: 1;
     pointer-events: auto;
 }
+
 .portfolio-website-nav div:hover {
     color: var(--nav-item-hover);
 }
@@ -400,7 +402,8 @@ a {
     padding-top: 0.2rem;
     grid-column: span 13;
     min-width: 650px;
-
+    grid-column: span 17/ 18;
+    order: 2;
     font-family: "Roobert";
     font-style: normal;
     font-weight: 500;
@@ -415,13 +418,15 @@ a {
 }
 
 .section.work .content .project-container .overview .preview-container {
-    grid-column: span 9;
+    grid-column: 14/ span 16;
+    padding: 40px 0 40px 0;
+    order: 1;
     display: flex;
     align-items: center;
 }
 
 .section.work .content .project-container .overview .preview-container .preview-image {
-    width: 445px;
+    width: 100%;
     height: auto;
     border-radius: 16px;
 }
