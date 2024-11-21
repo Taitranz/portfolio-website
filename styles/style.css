@@ -304,7 +304,7 @@ a {
 
     font-size: 72px;
     color: rgb(173, 59, 52);
-    line-height: 1.4;
+    line-height: 1.5;
     font-feature-settings: var(--font--feature-settings-no-stylized-numeral-8);
     font-style: normal;
     font-family: 'Nature Beauty';
@@ -317,7 +317,7 @@ a {
     font-style: normal;
     font-weight: 500;
     font-feature-settings: var(--font--feature-settings-no-stylized-numeral-8);
-    line-height: 0.9;
+    line-height: 1;
     font-family: 'DIN Round';
 }
 
