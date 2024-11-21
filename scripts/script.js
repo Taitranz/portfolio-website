@@ -1,4 +1,3 @@
-// JavaScript to toggle 'selected' class on navigation items based on scroll position
 const navItems = document.querySelectorAll('.portfolio-website-nav .item');
 const sections = document.querySelectorAll('.portfolio-website-main .section');
 
@@ -55,14 +54,12 @@ navItems.forEach(item => {
         const sectionClass = item.classList[1];
         const section = document.querySelector(`.section.${sectionClass}`);
         if (section) {
-            // Replace scrollIntoView with smoothScrollTo and set duration (e.g., 1000ms)
             smoothScrollTo(section, 1000);
         }
     });
 });
 
 
-// Define the texts for each option
 const textsForOptions = {
     anyone: [
         "Hello there, I’m a",
@@ -80,10 +77,9 @@ const textsForOptions = {
     ]
 };
 
-// Function to update the texts based on the active option
 function updateTexts(option) {
     const textsContainer = document.querySelector('.section.intro .texts');
-    textsContainer.innerHTML = ''; // Clear existing texts
+    textsContainer.innerHTML = '';
 
     textsForOptions[option].forEach(text => {
         const h1 = document.createElement('h1');
@@ -94,25 +90,66 @@ function updateTexts(option) {
 
 const optionItems = document.querySelectorAll('.options .option');
 
-// Add click event listener to each option
 optionItems.forEach(item => {
     item.addEventListener('click', () => {
-        // Remove 'is--active' from all options
         optionItems.forEach(i => i.classList.remove('is--active'));
 
-        // Add 'is--active' to the clicked option
         item.classList.add('is--active');
 
-        // Update texts based on the active option
         const optionClass = item.classList[1];
         updateTexts(optionClass);
     });
 });
 
-// Initialize texts for the default active option
 const defaultActiveOption = document.querySelector('.options .option.is--active').classList[1];
 updateTexts(defaultActiveOption);
 
 
 
 
+
+const hamburgerMenu = document.querySelector('.hamburger-menu-centered');
+const navMenu = document.querySelector('.portfolio-website-nav');
+const overlay = document.querySelector('.overlay');
+
+hamburgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('nav-visible');
+    overlay.classList.toggle('visible');
+    hamburgerMenu.classList.toggle('active'); // Added line to toggle active class
+});
+
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navItems.forEach(i => i.classList.remove('selected'));
+        item.classList.add('selected');
+
+        const sectionClass = item.classList[1];
+        const section = document.querySelector(`.section.${sectionClass}`);
+        if (section) {
+            smoothScrollTo(section, 1000);
+        }
+
+        navMenu.classList.remove('nav-visible');
+        overlay.classList.remove('visible');
+        hamburgerMenu.classList.remove('active'); // Added line to remove active class on item click
+    });
+});
+
+// Add window resize listener
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 1020) {
+        if (hamburgerMenu.classList.contains('active')) {
+            hamburgerMenu.classList.remove('active');
+            navMenu.classList.remove('nav-visible');
+            overlay.classList.remove('visible');
+        }
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (hamburgerMenu.classList.contains('active')) {
+        hamburgerMenu.classList.remove('active');
+        navMenu.classList.remove('nav-visible');
+        overlay.classList.remove('visible');
+    }
+});
