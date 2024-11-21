@@ -124,9 +124,7 @@ a {
 
 ::selection {
     background: rgb(229, 229, 229);
-    /* Gold color */
-    color: #000000;
-    /* Black text */
+
 }
 
 .portfolio-website-header {
