@@ -355,12 +355,14 @@ a {
 .section.work .content .project-container .details {
     display: flex;
     justify-content: flex-start;
-
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
     width: fit-content;
 
 }
+
+
 
 .section.work .content .project-container .details .software-stack {
     font-size: 28px;
@@ -379,6 +381,7 @@ a {
 
     font-size: 24px;
     line-height: var(--font--size-regular-line-height);
+    padding-top: 5px;
     font-family: "Roobert";
     font-style: normal;
     font-weight: 600;
