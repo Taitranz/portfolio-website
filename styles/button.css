@@ -30,19 +30,16 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* Adjust the gap between elements as needed */
 }
 
 .button-group {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    /* Adjust the gap between buttons as needed */
-    width: 274px;
+    width: 260px;
     height: 52px;
     margin-top: 1.2rem;
     position: relative;
-    /* Adjust the value to control the space above the button group */
 }
 
 
@@ -50,24 +47,20 @@
 .button-top__view-documentation,
 .button-bottom__view-documentation {
     position: absolute;
-    /* Optional: make buttons full width */
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: rgb(245, 245, 245);
+
 }
 
 .button-top__view-documentation {
     gap: 0.5rem;
     top: -2px;
-    border-radius: 8px;
+    border-radius: 12px;
     font-size: 18px;
     font-family: "Roobert", sans-serif;
     border-width: 2px;
     border-style: solid;
     border-color: #000000;
     z-index: 2;
-    width: 274px;
+    width: 260px;
     height: 52px;
     display: flex;
     align-items: center;
@@ -79,10 +72,12 @@
 }
 
 .button-bottom__view-documentation {
-    width: 274px;
+    width: 260px;
     height: 52px;
-    border-radius: 8px;
+    border-radius: 12px;
     border: none;
+
+
     background-color: #000000;
     z-index: 1;
 }
@@ -96,59 +91,44 @@
 
 .button-link {
     text-decoration: none;
-    /* Remove underline */
     color: inherit;
-    /* Inherit text color */
     display: inline-flex;
-    /* Make it behave like a button */
     align-items: center;
-    /* Center content vertically */
     justify-content: center;
-    /* Center content horizontally */
-    padding: 5px;
-    /* Add padding */
+    padding: 4px 18px 4px 16px;
     background-color: rgb(245, 245, 245);
-    /* Background color */
     border: 2px solid #000000;
-    /* Border */
-    border-radius: 8px;
-    /* Rounded corners */
+    border-radius: 12px;
     font-family: "Roobert", sans-serif;
-    /* Font family */
     font-weight: 600;
-    /* Font weight */
     font-size: 18px;
-    /* Font size */
     cursor: pointer;
-    /* Pointer cursor */
 }
 
 .button-link:hover {
     background-color: rgb(235, 235, 235);
-    /* Hover background color */
-}
-
-.button-right-icon {
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
 }
 
 
 .button-left-icon {
     width: 32px;
-    height: 32px;
-    vertical-align: middle;
 
+    vertical-align: middle;
+}
+
+.button-right-icon {
+    width: 16px;
+    vertical-align: middle;
 }
 
 .documentation-text {
     font-family: "Roobert", sans-serif;
     font-weight: 600;
     font-size: 18px;
+    width: 100%;
+    text-align: center;
+
     color: #000000;
-    margin-left: 10px;
     padding-bottom: 2px;
     display: inline-block;
-    /* Adjust this value as needed */
 }

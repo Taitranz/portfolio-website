@@ -580,13 +580,17 @@ width: 100%;
 
 @media (max-width: 500px) {
     .section.work .content .project-container .overview .preview-container .preview-image {
+
         width: 100%;
         /* Make the image width responsive */
         height: auto;
         border-radius: 16px;
     }
-
+.section.work .content .project-container .details{
+        padding: 0px;
+}
     .section.work .content .project-container .overview .preview-container {
+                padding: 10px 0 10px 0;
         grid-column: span 23;
         margin-top: 1rem;
         order: 1;
