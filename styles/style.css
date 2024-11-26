@@ -410,7 +410,7 @@ a {
     font-style: normal;
     font-weight: 500;
     color: rgb(140, 140, 140);
-    font-size: 18px;
+    font-size: 16px;
 
 }
 
@@ -601,7 +601,15 @@ body {
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
 }
+.seek-music-link {
+    color: #007BFF;
+    text-decoration: underline;
+    cursor: pointer;
+}
 
+.seek-music-link:hover {
+    color: #0056b3;
+}
 @keyframes fadeIn {
     to {
         opacity: 1.5;
