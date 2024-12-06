@@ -322,15 +322,15 @@ a {
     padding: 0px 40px 0px 40px;
 }
 
-.section.projects {
+.section.work {
     padding-top: var(--grid--app-margin);
 }
 
-.section.projects .content .project-container {
+.section.work .content .project-container {
     padding-bottom: 160px;
 }
 
-.section.projects .content .project-container .title .seek-music {
+.section.work .content .project-container .title .seek-music {
     user-select: none;
     font-size: 72px;
     color: rgb(173, 59, 52);
@@ -340,7 +340,7 @@ a {
     font-family: 'Nature Beauty';
 }
 
-.section.projects .content .project-container .title .socslingo {
+.section.work .content .project-container .title .socslingo {
     user-select: none;
     font-size: 72px;
     color: rgb(255, 204, 111);
@@ -352,7 +352,7 @@ a {
 }
 
 /* Add this to your existing CSS file */
-.section.projects .content .project-container .details {
+.section.work .content .project-container .details {
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -364,7 +364,7 @@ a {
 
 
 
-.section.projects .content .project-container .details .software-stack {
+.section.work .content .project-container .details .software-stack {
     font-size: 28px;
     line-height: 1;
     font-family: "Roobert";
@@ -377,7 +377,7 @@ a {
 
 
 
-.section.projects .content .project-container .details .development-timeline {
+.section.work .content .project-container .details .development-timeline {
 
     font-size: 24px;
     line-height: var(--font--size-regular-line-height);
@@ -392,7 +392,7 @@ a {
 }
 
 
-.section.projects .content .project-container .overview {
+.section.work .content .project-container .overview {
     display: grid;
     padding-top: 0.2rem;
     grid-template-columns: repeat(24, 1fr);
@@ -401,7 +401,7 @@ a {
 }
 
 
-.section.projects .content .project-container .overview .description {
+.section.work .content .project-container .overview .description {
     padding-top: 0.2rem;
     min-width: 650px;
     grid-column: span 13/ 14;
@@ -414,12 +414,12 @@ a {
 
 }
 
-.section.projects .content .project-container .overview .description .button-view-documentation {
+.section.work .content .project-container .overview .description .button-view-documentation {
     width: 223px;
     height: 43px;
 }
 
-.section.projects .content .project-container .overview .preview-container {
+.section.work .content .project-container .overview .preview-container {
     grid-column: 14/ span 16;
     padding: 60px 0 60px 0;
     order: 1;
@@ -427,7 +427,7 @@ a {
     align-items: center;
 }
 
-.section.projects .content .project-container .overview .preview-container .preview-image {
+.section.work .content .project-container .overview .preview-container .preview-image {
     width: 100%;
     height: auto;
     border-radius: 16px;
