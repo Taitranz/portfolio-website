@@ -5,7 +5,7 @@ const sections = document.querySelectorAll('.portfolio-website-main .section');
 const options = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    threshold: 0.3
 };
 
 let observer = new IntersectionObserver((entries) => {
@@ -57,7 +57,7 @@ navItems.forEach(item => {
 
         navMenu.classList.remove('nav-visible');
         overlay.classList.remove('visible');
-        hamburgerMenu.classList.remove('active'); 
+        hamburgerMenu.classList.remove('active');
     });
 });
 
