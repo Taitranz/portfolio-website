@@ -73,6 +73,13 @@ const textsForOptions = {
         "Hello there, I’m a",
         "student looking for",
         "opportunities to",
+        "practice anything",
+        "coding related"
+    ],
+    misc: [
+        "Hello there, I’m a",
+        "student looking for",
+        "opportunities to",
         "apply my skills in",
         "machine learning."
     ]
