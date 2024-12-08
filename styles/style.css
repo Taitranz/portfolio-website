@@ -601,13 +601,13 @@ body {
     opacity: 0;
     animation: fadeIn 1s ease-in forwards;
 }
-.seek-music-link {
+.link {
     color: #007BFF;
     text-decoration: underline;
     cursor: pointer;
 }
 
-.seek-music-link:hover {
+.link:hover {
     color: #0056b3;
 }
 @keyframes fadeIn {
