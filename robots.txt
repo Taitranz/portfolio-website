@@ -1,0 +1,41 @@
+# robots.txt for Tai Tran's Portfolio
+# https://taitranz.com
+#
+# About this site:
+# This is the portfolio website of Tai Tran, a Software Engineer based in Brisbane, Australia.
+# The site showcases software engineering projects, technical skills, and professional background.
+# For more information, visit: https://blog.taitranz.com
+#
+# Site Owner: Tai Tran
+# Location: Brisbane, Australia
+# Topics: Software Engineering, Python, Machine Learning, Web Development, Desktop Applications
+#
+# Last updated: 2025-01-27
+
+# Allow all crawlers to access all content
+User-agent: *
+Allow: /
+
+# Disallow crawling of admin/private directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Crawl-delay (optional - helps prevent server overload)
+# Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://taitranz.com/sitemap.xml
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block bad bots (optional - uncomment if needed)
+# User-agent: AhrefsBot
+# Disallow: /
+#
+# User-agent: SemrushBot
+# Disallow: /
