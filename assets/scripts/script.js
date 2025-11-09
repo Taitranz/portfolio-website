@@ -22,28 +22,91 @@ sections.forEach((section) => {
     observer.observe(section);
 });
 
-function smoothScrollTo(element, duration) {
+const prefersReducedMotionQuery = window.matchMedia
+    ? window.matchMedia("(prefers-reduced-motion: reduce)")
+    : { matches: false };
+const scrollCancelEvents = [
+    { type: "wheel", options: { passive: true } },
+    { type: "touchstart", options: { passive: true } },
+    { type: "touchmove", options: { passive: true } },
+    { type: "keydown", options: false },
+    { type: "mousedown", options: false },
+];
+
+let scrollAnimationFrame = null;
+let cancelScrollListener = null;
+
+function addScrollCancelListeners(listener) {
+    scrollCancelEvents.forEach(({ type, options }) => window.addEventListener(type, listener, options));
+}
+
+function removeScrollCancelListeners(listener) {
+    scrollCancelEvents.forEach(({ type, options }) => window.removeEventListener(type, listener, options));
+}
+
+function stopActiveScrollAnimation() {
+    if (scrollAnimationFrame !== null) {
+        cancelAnimationFrame(scrollAnimationFrame);
+        scrollAnimationFrame = null;
+    }
+
+    if (cancelScrollListener) {
+        removeScrollCancelListeners(cancelScrollListener);
+        cancelScrollListener = null;
+    }
+}
+
+function smoothScrollTo(element, duration = 1000) {
+    if (!element) return;
+
+    stopActiveScrollAnimation();
+
     const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+
+    if (prefersReducedMotionQuery.matches) {
+        window.scrollTo({ top: targetPosition, behavior: "auto" });
+        return;
+    }
+
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
+
+    if (Math.abs(distance) < 1) {
+        return;
+    }
+
+    const minDuration = 250;
+    const maxDuration = Math.max(duration, minDuration);
+    const distanceInfluence = Math.abs(distance) * 0.5;
+    const adjustedDuration = Math.min(maxDuration, Math.max(minDuration, distanceInfluence));
+
+    const easeInOutCubic = (progress) =>
+        progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
     let startTime = null;
 
-    function animation(currentTime) {
-        if (startTime === null) startTime = currentTime;
-        const timeElapsed = currentTime - startTime;
-        const run = ease(timeElapsed, startPosition, distance, duration);
-        window.scrollTo(0, run);
-        if (timeElapsed < duration) requestAnimationFrame(animation);
-    }
+    const step = (timestamp) => {
+        if (startTime === null) startTime = timestamp;
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / adjustedDuration, 1);
+        const easedProgress = easeInOutCubic(progress);
 
-    function ease(t, b, c, d) {
-        t /= d / 2;
-        if (t < 1) return (c / 2) * t * t + b;
-        t--;
-        return (-c / 2) * (t * (t - 2) - 1) + b;
-    }
+        window.scrollTo(0, startPosition + distance * easedProgress);
 
-    requestAnimationFrame(animation);
+        if (progress < 1) {
+            scrollAnimationFrame = requestAnimationFrame(step);
+        } else {
+            stopActiveScrollAnimation();
+        }
+    };
+
+    cancelScrollListener = () => {
+        stopActiveScrollAnimation();
+    };
+
+    addScrollCancelListeners(cancelScrollListener);
+
+    scrollAnimationFrame = requestAnimationFrame(step);
 }
 
 navItems.forEach((item) => {
