@@ -220,13 +220,16 @@
                         <div class="overview">
                             <div class="description">
                                 <p>
-                                    Valgo is a GPU-accelerated financial charting desktop application built for real-time market data visualization and
-                                    technical analysis. It's in-house software that uses VisPy/OpenGL for high-performance candlestick rendering, leveraging GPU
-                                    acceleration to perform multiple analyses in parallel, and PySide6 Qt for the UI framework. The application streams live
-                                    price data from OANDA (or demo sources), aggregates candles at configurable timeframes, and renders them with
-                                    GPU-accelerated shaders supporting pan/zoom interactions, cursor overlays, and real-time updates. Its purpose is to automate
-                                    real-time market analysis by combining programmatic technical analysis with machine learning trained on human trader
-                                    decision-making.
+                                    Valgo sits at the frontier of agentic trading and delivers fully autonomous, style-consistent execution. It takes raw candle
+                                    and news data, routes it through high-performance visualisation and analytic tooling, and uses real trader behaviour,
+                                    including labels, executions, and outcomes, as ground truth. From this, Valgo's agent learns the trader's edge and trading
+                                    style, uses the same tools visible in the UI, and runs continuously over live EUR/USD markets to detect, evaluate, and
+                                    execute trades that match that learned profile. The application pushes agentic trading forward by tightly coupling three
+                                    layers: data infrastructure, analytic tooling, and agentic integration. Market structure, indicators, and labelled trades
+                                    are all first-class objects that the agent can query and reason over, rather than opaque time series. LLM-driven agents sit
+                                    directly on top of this stack, turning raw streams into interpretable signals, managing risk within explicit rules, and
+                                    closing the loop from data to decision to execution without manual prompting. In Valgo, autonomous trading is not an
+                                    abstract goal, it is the operating mode.
                                 </p>
                                 <div class="button-group">
                                     <a
