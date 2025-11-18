@@ -4,17 +4,30 @@ const sections = document.querySelectorAll(".portfolio-website-main .section");
 const options = {
     root: null,
     rootMargin: "0px",
-    threshold: 0.3,
+    threshold: 0.1,
 };
 
+function getSectionClass(element) {
+    return Array.from(element.classList).find((cls) => cls !== "section");
+}
+
 let observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            const sectionClass = entry.target.classList[1];
-            navItems.forEach((item) => {
-                item.classList.toggle("selected", item.classList.contains(sectionClass));
-            });
-        }
+    const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+    if (!visibleEntries.length) {
+        return;
+    }
+
+    const mostVisibleEntry = visibleEntries.reduce((maxEntry, currentEntry) =>
+        currentEntry.intersectionRatio > maxEntry.intersectionRatio ? currentEntry : maxEntry
+    );
+
+    const sectionClass = getSectionClass(mostVisibleEntry.target);
+    if (!sectionClass) {
+        return;
+    }
+
+    navItems.forEach((item) => {
+        item.classList.toggle("selected", item.classList.contains(sectionClass));
     });
 }, options);
 
