@@ -615,3 +615,27 @@ body {
         opacity: 1.5;
     }
 }
+
+/* Testimonial Page */
+.testimonial-page-section {
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.testimonial-wrapper {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.testimonial-item .quote {
+    margin-bottom: 20px;
+}
+
+.testimonial-item .role {
+    color: var(--color--foreground--50);
+}
