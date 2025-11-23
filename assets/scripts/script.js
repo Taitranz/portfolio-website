@@ -138,7 +138,7 @@ navItems.forEach((item) => {
 
 const textsForOptions = {
     anyone: ["Hello there, I like", "building software at", "high velocity and", "taking on challenging", "problems."],
-    recruiters: ["Hello there, I'm", "looking for", "opportunities in", "the software", "field"],
+    recruiters: ["Hello there, I'm", "looking for opportunities", "where I can have", "high impact and", "ownership."],
     misc: ["Hello there, I’m a", "student looking for", "opportunities to", "apply my skills in", "machine learning."],
 };
 
