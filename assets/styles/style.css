@@ -294,7 +294,8 @@ a {
     padding-left: 0;
 }
 
-.section h1 {
+.section h1,
+.section .tagline {
     margin-left: var(--font--margin-left);
 
     font-size: var(--font--size-huge);

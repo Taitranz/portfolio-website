@@ -137,20 +137,31 @@ navItems.forEach((item) => {
 });
 
 const textsForOptions = {
-    anyone: ["Hello there, I like", "building software at", "high velocity and", "taking on challenging", "problems."],
-    recruiters: ["Hello there, I'm", "looking for opportunities", "where I can have", "high impact and", "ownership."],
-    misc: ["Hello there, I’m a", "student looking for", "opportunities to", "apply my skills in", "machine learning."],
+    anyone: {
+        title: "Hello there, I like",
+        tagline: "building software at<br>high velocity and<br>taking on challenging<br>problems.",
+    },
+    recruiters: {
+        title: "Looking for",
+        tagline: "opportunities with<br>high development velocity,<br>high impact,<br>and high ownership.",
+    },
 };
 
 function updateTexts(option) {
     const textsContainer = document.querySelector(".section.intro .texts");
     textsContainer.innerHTML = "";
 
-    textsForOptions[option].forEach((text) => {
+    const content = textsForOptions[option];
+    if (content) {
         const h1 = document.createElement("h1");
-        h1.textContent = text;
+        h1.textContent = content.title;
         textsContainer.appendChild(h1);
-    });
+
+        const p = document.createElement("p");
+        p.className = "tagline";
+        p.innerHTML = content.tagline;
+        textsContainer.appendChild(p);
+    }
 }
 
 const optionItems = document.querySelectorAll(".options .option");

@@ -303,7 +303,8 @@
         display: none;
     }
 
-    .section h1 {
+    .section h1,
+    .section .tagline {
         line-height: 1;
     }
 
