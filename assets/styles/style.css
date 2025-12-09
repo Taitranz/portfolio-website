@@ -106,6 +106,10 @@ figure {
     margin-left: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
 
     margin: 0;
