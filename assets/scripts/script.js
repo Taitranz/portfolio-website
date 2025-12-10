@@ -39,15 +39,33 @@ const prefersReducedMotionQuery = window.matchMedia
     ? window.matchMedia("(prefers-reduced-motion: reduce)")
     : { matches: false };
 
-function smoothScrollTo(element) {
+const easeInOutExpo = (t) => {
+    if (t === 0 || t === 1) return t;
+    return t < 0.5
+        ? Math.pow(2, 20 * t - 10) / 2
+        : (2 - Math.pow(2, -20 * t + 10)) / 2;
+};
+
+function smoothScrollTo(element, duration = 800) {
     if (!element) return;
+    if (prefersReducedMotionQuery.matches || duration <= 0) {
+        element.scrollIntoView({ behavior: "auto", block: "start" });
+        return;
+    }
 
-    const targetPosition = element.getBoundingClientRect().top + window.scrollY;
+    const startY = window.scrollY;
+    const targetY = element.getBoundingClientRect().top + startY;
+    const distance = targetY - startY;
+    const startTime = performance.now();
 
-    window.scrollTo({
-        top: targetPosition,
-        behavior: prefersReducedMotionQuery.matches ? "auto" : "smooth",
-    });
+    const step = (now) => {
+        const elapsed = Math.min((now - startTime) / duration, 1);
+        const eased = easeInOutExpo(elapsed);
+        window.scrollTo({ top: startY + distance * eased });
+        if (elapsed < 1) requestAnimationFrame(step);
+    };
+
+    requestAnimationFrame(step);
 }
 
 navItems.forEach((item) => {
