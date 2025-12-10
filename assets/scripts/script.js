@@ -38,88 +38,16 @@ sections.forEach((section) => {
 const prefersReducedMotionQuery = window.matchMedia
     ? window.matchMedia("(prefers-reduced-motion: reduce)")
     : { matches: false };
-const scrollCancelEvents = [
-    { type: "wheel", options: { passive: true } },
-    { type: "touchstart", options: { passive: true } },
-    { type: "touchmove", options: { passive: true } },
-    { type: "keydown", options: false },
-    { type: "mousedown", options: false },
-];
 
-let scrollAnimationFrame = null;
-let cancelScrollListener = null;
-
-function addScrollCancelListeners(listener) {
-    scrollCancelEvents.forEach(({ type, options }) => window.addEventListener(type, listener, options));
-}
-
-function removeScrollCancelListeners(listener) {
-    scrollCancelEvents.forEach(({ type, options }) => window.removeEventListener(type, listener, options));
-}
-
-function stopActiveScrollAnimation() {
-    if (scrollAnimationFrame !== null) {
-        cancelAnimationFrame(scrollAnimationFrame);
-        scrollAnimationFrame = null;
-    }
-
-    if (cancelScrollListener) {
-        removeScrollCancelListeners(cancelScrollListener);
-        cancelScrollListener = null;
-    }
-}
-
-function smoothScrollTo(element, duration = 1000) {
+function smoothScrollTo(element) {
     if (!element) return;
-
-    stopActiveScrollAnimation();
 
     const targetPosition = element.getBoundingClientRect().top + window.scrollY;
 
-    if (prefersReducedMotionQuery.matches) {
-        window.scrollTo({ top: targetPosition, behavior: "auto" });
-        return;
-    }
-
-    const startPosition = window.scrollY;
-    const distance = targetPosition - startPosition;
-
-    if (Math.abs(distance) < 1) {
-        return;
-    }
-
-    const minDuration = 250;
-    const maxDuration = Math.max(duration, minDuration);
-    const distanceInfluence = Math.abs(distance) * 0.5;
-    const adjustedDuration = Math.min(maxDuration, Math.max(minDuration, distanceInfluence));
-
-    const easeInOutCubic = (progress) =>
-        progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-    let startTime = null;
-
-    const step = (timestamp) => {
-        if (startTime === null) startTime = timestamp;
-        const elapsed = timestamp - startTime;
-        const progress = Math.min(elapsed / adjustedDuration, 1);
-        const easedProgress = easeInOutCubic(progress);
-
-        window.scrollTo(0, startPosition + distance * easedProgress);
-
-        if (progress < 1) {
-            scrollAnimationFrame = requestAnimationFrame(step);
-        } else {
-            stopActiveScrollAnimation();
-        }
-    };
-
-    cancelScrollListener = () => {
-        stopActiveScrollAnimation();
-    };
-
-    addScrollCancelListeners(cancelScrollListener);
-
-    scrollAnimationFrame = requestAnimationFrame(step);
+    window.scrollTo({
+        top: targetPosition,
+        behavior: prefersReducedMotionQuery.matches ? "auto" : "smooth",
+    });
 }
 
 navItems.forEach((item) => {
