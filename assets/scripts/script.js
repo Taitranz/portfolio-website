@@ -91,6 +91,16 @@ const textsForOptions = {
         title: "Looking for",
         tagline: "opportunities with<br>high development velocity,<br>high impact,<br>and high ownership.",
     },
+    resume: {
+        title: "Check out my",
+        tagline: `
+            <div style="display: flex; gap: 20px; margin-top: 10px; flex-wrap: wrap;">
+                <a href="assets/Resume/Tai_Tran_Software_Engineer_Resume.pdf" target="_blank" style="text-decoration: underline; cursor: pointer;">Technical Resume</a>
+                <a href="assets/Resume/Tai_Tran_Non_Technical_Resume.pdf" target="_blank" style="text-decoration: underline; cursor: pointer;">Non-Technical Resume</a>
+            </div>
+        `,
+        isHtml: true
+    },
 };
 
 function updateTexts(option) {
@@ -103,10 +113,10 @@ function updateTexts(option) {
         h1.textContent = content.title;
         textsContainer.appendChild(h1);
 
-        const p = document.createElement("p");
-        p.className = "tagline";
-        p.innerHTML = content.tagline;
-        textsContainer.appendChild(p);
+        const taglineEl = document.createElement(content.isHtml ? "div" : "p");
+        taglineEl.className = "tagline";
+        taglineEl.innerHTML = content.tagline;
+        textsContainer.appendChild(taglineEl);
     }
 }
 
