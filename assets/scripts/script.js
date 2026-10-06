@@ -87,10 +87,6 @@ const textsForOptions = {
         title: "Hello there, I like",
         tagline: "building software at<br>high velocity and<br>taking on challenging<br>problems.",
     },
-    recruiters: {
-        title: "Looking for",
-        tagline: "opportunities with<br>high development velocity,<br>high impact,<br>and high ownership.",
-    },
     resume: {
         title: "Check out my",
         tagline: `
